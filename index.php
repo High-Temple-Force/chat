@@ -39,18 +39,18 @@ if (isset($_POST["login"])) {
 </head>
 <body>
     <div id="your_container">
-        <?php if ($_SESSION["page"] == 'login'): ?>
-            <form id="loginForm" name="loginForm" action="" method="POST">  
-                    <label for="userid">ユーザーID</label><input type="text" id="userid" name="userid" placeholder="ユーザーIDを入力" value="<?php if (!empty($_POST["userid"])) {echo htmlspecialchars($_POST["userid"], ENT_QUOTES);} ?>">
-                    <br>
-                    <input type="submit" id="login" name="login" value="ログイン">
-            </form>
-        <?php elseif ( $_SESSION["page"] == 'chat' ): ?>
-            
-
-        <?php elseif ( $_SESSION["page"] == 'talk' ): ?>
         <!-- チャットの外側部分① -->
-            <div id="bms_messages_container">
+        <div id="bms_messages_container">
+            <?php if ($_SESSION["page"] == 'login'): ?>
+                <form id="loginForm" name="loginForm" action="" method="POST">  
+                        <label for="userid">ユーザーID</label><input type="text" id="userid" name="userid" placeholder="ユーザーIDを入力" value="<?php if (!empty($_POST["userid"])) {echo htmlspecialchars($_POST["userid"], ENT_QUOTES);} ?>">
+                        <br>
+                        <input type="submit" id="login" name="login" value="ログイン">
+                </form>
+            <?php elseif ( $_SESSION["page"] == 'chat' ): ?>
+                <h1>HEY</h1>
+
+            <?php elseif ( $_SESSION["page"] == 'talk' ): ?>
                 <!-- ヘッダー部分② -->
                 <div id="bms_chat_header">
                     <!--ステータス-->
@@ -92,8 +92,8 @@ if (isset($_POST["login"])) {
                     <textarea id="bms_send_message"></textarea>
                     <div id="bms_send_btn">送信</div>
                 </div>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </div>
 </body>
 </html>
