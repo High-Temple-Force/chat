@@ -32,7 +32,7 @@ if (isset($_POST["sent"])) {
         .'","' .$_SESSION['talk'] .'","' .$_POST['text'] .'");';
         $pdo->query($cmd);
     }
-    $cmd = 'select * from t_message where talk_id = "' .$_POST['open_talk'] .'";';
+    $cmd = 'select * from t_message where talk_id = "' .$_SESSION['talk'] .'";';
     foreach($pdo->query($cmd) as $row){
         $messages[] = $row;
     }
