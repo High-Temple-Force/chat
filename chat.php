@@ -61,11 +61,13 @@ if (isset($_POST["sent"])) {
                 <!--ステータス-->
                 <div id="bms_chat_user_status">
                     <!--戻るボタン-->
-                    <form action="#" method="POST">
-                    <button type="submit" id="bms_back" name="back">＜</button>
-                    <!--ユーザー名-->
-                    <div id="bms_chat_user_name"><?php print $_SESSION['talk'];?></div>
-                    </form>
+                    <?php if ($_SESSION['page'] == 'talk'): ?>
+                        <form action="#" method="POST">
+                        <button type="submit" id="bms_back" name="back">＜</button>
+                        <!--ユーザー名-->
+                        <div><?php print $_SESSION['talk'];?></div>
+                        </form>
+                    <?php endif;?>
                 </div>
             </div>
 
