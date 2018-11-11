@@ -1,5 +1,5 @@
 <?php
-$id = $_POST['id'];
+$id = $_POST['member_id'];
 
 // データベース接続
 try {
@@ -9,7 +9,7 @@ try {
  exit;
 }
 // データ取得
-$sql = "SELECT * FROM t_member where member_id='Takuto' ";
+$sql = "SELECT * FROM t_member where member_id='" .$id ."' ";
 $stmt = ($dbh->prepare($sql));
 $stmt->execute(array($id));
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-IDを入力:<input id="id_number" type="number"><br>
+IDを入力:<input type="text" id="id_number" type="number"><br>
 
 <div id="result">
  <p>数値を入力してボタンを押してください。</p>
