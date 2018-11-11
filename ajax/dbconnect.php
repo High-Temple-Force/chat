@@ -1,5 +1,7 @@
 <?php
-$id = $_POST['member_id'];
+$text = $_POST['text'];
+$talk_id = $_POST['talk'];
+$member_id = $_POST['member_id'];
 
 // データベース接続
 try {
@@ -10,7 +12,7 @@ try {
 }
 // データ取得
 $memberList = array();
-$cmd = 'SELECT * FROM t_member where member_id="' .$id .'";';
+$cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$member_id .'","' .$talk_id .'","' .$text .'");';
 foreach($pdo->query($cmd) as $row){
     $memberList[]=$row;
 }
@@ -18,3 +20,5 @@ foreach($pdo->query($cmd) as $row){
 //jsonとして出力
 header('Content-type: application/json');
 echo json_encode($memberList,JSON_UNESCAPED_UNICODE);
+
+?>

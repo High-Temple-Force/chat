@@ -24,6 +24,7 @@ if (isset($_POST["open_talk"])) {
         $messages[] = $row;
     }
 }
+/*
 if (isset($_POST["sent"])) {
     $_SESSION['page'] = 'talk';
     if($_POST['text']!=''){
@@ -37,6 +38,7 @@ if (isset($_POST["sent"])) {
         $messages[] = $row;
     }
 }
+*/
 if (isset($_POST["back "])) {
     $_SESSION['page'] = 'talks';
     $_SESSION['talk'] = '';
@@ -51,6 +53,7 @@ if (isset($_POST["back "])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="style/style.css" />
     <script type="text/javascript" src="js/script.js" charset="UTF-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <title>chat</title>
 </head>
 <body>
@@ -123,9 +126,42 @@ if (isset($_POST["back "])) {
                 <form action="#" method="POST">
                     <div id="bms_send">
                         <textarea id="bms_send_message" name="text"></textarea>
-                        <button type="submit" id="bms_send_btn" name="sent">送信</button>
+                        <button type="submit" id="ajax" name="sent">送信</button>
+                        <input type="hidden" id="talk_id" value="<?php print $_SESSION['talk'];?>"/>
+                        <input type="hidden" id="member_id" value="<?php print $_SESSION['name'];?>"/>
                     </div>
                 </form>
+                <script>
+                    $(function(){
+
+                    $('#ajax').on('click',function(){
+
+                    $.ajax({
+                    url:'ajax/dbconnect.php', //送信先
+                    type:'POST', //送信方法
+                    datatype: 'json', //受け取りデータの種類
+                    data:{
+                        'text' : $('#bms_send_message').val(),
+                        'talk' : $('#talk_id').val(),
+                        'member' : $('#member_id').val()
+                    }
+                    })
+                    // Ajax通信が成功した時
+                    .done( function(data) {
+                    $('#result').html("<p>ID番号"+data[0].member_id+"は「"+data[0].member_name+"」さんです。</p>");
+                    console.log('通信成功');
+                    console.log(data);
+                    })
+                    // Ajax通信が失敗した時
+                    .fail( function(data) {
+                    $('#result').html(data);
+                    console.log('通信失敗');
+                    console.log(data);
+                    })
+                    }); //#ajax click end
+
+                    }); //END
+                </script>
             <?php endif;?>
         </div>
     </div>
