@@ -1,7 +1,7 @@
 <?php
 $text = $_POST['text'];
 $talk_id = $_POST['talk'];
-$member_id = $_POST['member_id'];
+$member_id = $_POST['member'];
 
 // データベース接続
 try {

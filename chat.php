@@ -126,7 +126,7 @@ if (isset($_POST["back "])) {
                 <form action="#" method="POST">
                     <div id="bms_send">
                         <textarea id="bms_send_message" name="text"></textarea>
-                        <button type="submit" id="ajax" name="sent">送信</button>
+                        <button type="submit" id="bms_send_btn" name="sent">送信</button>
                         <input type="hidden" id="talk_id" value="<?php print $_SESSION['talk'];?>"/>
                         <input type="hidden" id="member_id" value="<?php print $_SESSION['name'];?>"/>
                     </div>
@@ -134,7 +134,7 @@ if (isset($_POST["back "])) {
                 <script>
                     $(function(){
 
-                    $('#ajax').on('click',function(){
+                    $('#bms_send_btn').on('click',function(){
 
                     $.ajax({
                     url:'ajax/dbconnect.php', //送信先
