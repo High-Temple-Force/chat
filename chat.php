@@ -25,9 +25,10 @@ if (isset($_POST["open_talk"])) {
     }
 }
 
+/*
 if (isset($_POST["sent"])) {
     $_SESSION['page'] = 'talk';
-    /*
+    
     if($_POST['text']!=''){
         $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
         $cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$_SESSION['member'] 
@@ -37,9 +38,9 @@ if (isset($_POST["sent"])) {
     $cmd = 'select * from t_message where talk_id = "' .$_SESSION['talk'] .'";';
     foreach($pdo->query($cmd) as $row){
         $messages[] = $row;
-    }*/
+    }
 }
-
+*/
 if (isset($_POST["back"])) {
     $_SESSION['page'] = 'talks';
     $_SESSION['talk'] = '';
@@ -129,7 +130,7 @@ if (isset($_POST["back"])) {
                         <textarea id="bms_send_message" name="text"></textarea>
                         <button type="submit" id="bms_send_btn" name="sent">送信</button>
                         <input type="hidden" id="talk_id" value="<?php print $_SESSION['talk'];?>"/>
-                        <input type="hidden" id="member_id" value="<?php print $_SESSION['NAME'];?>"/>
+                        <input type="hidden" id="member_id" value="<?php print $_SESSION['member'];?>"/>
                     </div>
                 </form>
                 <script>
@@ -146,18 +147,6 @@ if (isset($_POST["back"])) {
                         'talk' : $('#talk_id').val(),
                         'member' : $('#member_id').val()
                     }
-                    })
-                    // Ajax通信が成功した時
-                    .done( function(data) {
-                    $('#result').html("<p>ID番号"+data[0].member_id+"は「"+data[0].member_name+"」さんです。</p>");
-                    console.log('通信成功');
-                    console.log(data);
-                    })
-                    // Ajax通信が失敗した時
-                    .fail( function(data) {
-                    $('#result').html(data);
-                    console.log('通信失敗');
-                    console.log(data);
                     })
                     }); //#ajax click end
 
