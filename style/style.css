@@ -53,16 +53,15 @@
 
 .btn{
     width:99%;
-    height:29px;
+    height:99%;
     text-align:left;
     text-decoration:none;
     font-size: 30px;
     padding:5px 5px;
-    border: 1px solid #234233;
     position: relative;
     display:block;
     background:#e6e6fa;
-    color:#fff;
+    color:black;
   }
   .btn:hover{
     background:RGBA(0, 121, 194, .10)
