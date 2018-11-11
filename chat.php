@@ -7,6 +7,14 @@ if (!isset($_SESSION["NAME"])) {
 }
 $_SESSION['page']='talks';
 
+$talks = Array();
+$pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
+$cmd = 'SELECT t_talk.talk_id,t_talk.talk_name,t_member.member_name FROM t_auth inner join t_member on t_auth.member_id = t_member.member_id
+        inner join t_talk on t_talk.talk_id = t_auth.talk_id and t_member.member_id="' .$_SESSION['NAME'] .'";';
+foreach($pdo->query($cmd) as $row){
+    $talks[] = $row;
+}
+
 if (isset($_POST["open_talk"])) {
     $_SESSION['page'] = 'talk';
     $_SESSION['talk'] = $_POST['open_talk'];
@@ -55,13 +63,6 @@ if (isset($_POST["sent"])) {
             <?php if ($_SESSION['page'] == 'talks'): ?>
                 <div id="bms_talks">
                     <?php
-                        $talks = Array();
-                        $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
-                        $cmd = 'SELECT t_talk.talk_id,t_talk.talk_name,t_member.member_name FROM t_auth inner join t_member on t_auth.member_id = t_member.member_id
-                                inner join t_talk on t_talk.talk_id = t_auth.talk_id and t_member.member_id="' .$_SESSION['NAME'] .'";';
-                        foreach($pdo->query($cmd) as $row){
-                            $talks[] = $row;
-                        }
                         foreach($talks as $talk){
                             print '<div class="bms_talk_box">';
                             print '<form action="#" method="POST">';
