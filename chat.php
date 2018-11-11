@@ -14,7 +14,7 @@ if (isset($_POST["open_talk"])) {
     foreach($pdo->query($cmd) as $row){
         $messages[] = $row;
     }
-    print $message[0][4];
+    print $cmd;
 }
 
 ?>
