@@ -7,6 +7,15 @@ if (!isset($_SESSION["NAME"])) {
 }
 $_SESSION['page']='talks';
 
+if (isset($_POST["open_talk"])) {
+    $_SESSION['page'] == 'talk';
+    $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
+    $cmd = 'select * from t_message where talk_id = "' .$_SESSION['open_talk'] .'";';
+    foreach($pdo->query($cmd) as $row){
+        $messages[] = $row;
+    }
+
+}
 
 
 ?>
@@ -48,7 +57,9 @@ $_SESSION['page']='talks';
                         }
                         foreach($talks as $talk){
                             print '<div class="bms_talk_box">';
+                            print '<form action="#" method="POST">';
                             print '<button type="submit" class="btn" name="open_talk" value="' .$talk[0] .'">' .$talk[1] .'</button>';
+                            print '</form>';
                             print '</div>';
                         }
                     ?>
@@ -56,25 +67,30 @@ $_SESSION['page']='talks';
             <?php elseif ($_SESSION['page'] == 'talk'): ?>
                 <div id="bms_messages">
                     <?php
-                        //<!--メッセージ１（左側）-->
-                        print '<div class="bms_message bms_left">';
-                        print  '<div class="bms_message_box">';
-                        print  '<div class="bms_message_content">';
-                        print  '<div class="bms_message_text">ほうほうこりゃー便利じゃないか</div>';
-                        print  '</div>';
-                        print  '</div>';
-                        print  '</div>';
-                        print  '<div class="bms_clear"></div>';//<!-- 回り込みを解除（スタイルはcssで充てる） -->
+                        foreach($messages as $message){
+                            if($message[1]!=$_SESSION["NAME"]){
+                                //<!--メッセージ１（左側）-->
+                                print '<div class="bms_message bms_left">';
+                                print  '<div class="bms_message_box">';
+                                print  '<div class="bms_message_content">';
+                                print  '<div class="bms_message_text">' .$message[4] .'</div>';
+                                print  '</div>';
+                                print  '</div>';
+                                print  '</div>';
+                                print  '<div class="bms_clear"></div>';//<!-- 回り込みを解除（スタイルはcssで充てる） -->
+                            }elseif($message[1]==$_SESSION["NAME"]){
 
-                        //<!--メッセージ２（右側）-->
-                        print  '<div class="bms_message bms_right">';
-                        print  '<div class="bms_message_box">';
-                        print  '<div class="bms_message_content">';
-                        print  '<div class="bms_message_text">うん、まあまあいけとるな</div>';
-                        print  '</div>';
-                        print  '</div>';
-                        print  '</div>';
-                        print  '<div class="bms_clear"></div>'; //<!-- 回り込みを解除（スタイルはcssで充てる） -->
+                                //<!--メッセージ２（右側）-->
+                                print  '<div class="bms_message bms_right">';
+                                print  '<div class="bms_message_box">';
+                                print  '<div class="bms_message_content">';
+                                print  '<div class="bms_message_text">' .$message[4] .'</div>';
+                                print  '</div>';
+                                print  '</div>';
+                                print  '</div>';
+                                print  '<div class="bms_clear"></div>'; //<!-- 回り込みを解除（スタイルはcssで充てる） -->
+                            }
+                        }
                     ?>
                 </div>
             
