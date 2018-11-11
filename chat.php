@@ -113,7 +113,7 @@ if (isset($_POST["sent"])) {
                 </div>
                 <script type="text/javascript">
                     var obj = document.getElementById(bms_messages);
-                    obj.scrollTop = obj.scrollHeight;;
+                    obj.scrollTop = obj.scrollHeight;
                 </script>
 
                 <!-- テキストボックス、送信ボタン④ -->
