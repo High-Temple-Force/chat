@@ -9,17 +9,10 @@ try {
  exit;
 }
 // データ取得
-$sql = "SELECT * FROM t_member where member_id=?";
-$stmt = ($dbh->prepare($sql));
-$stmt->execute(array($id));
-
-//あらかじめ配列を生成しておき、while文で回します。
 $memberList = array();
-while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
- $memberList[]=array(
-  'member_id' =>$row['member_id'],
-  'member_name'=>$row['member_name']
- );
+$cmd = 'SELECT * FROM t_member where member_id="' .$id .'";';
+foreach($pdo->query($cmd) as $row){
+    $memberList[]=$row;
 }
 
 //jsonとして出力
