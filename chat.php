@@ -1,7 +1,7 @@
 <?php
 // セッション開始
 session_start();
-if (!isset($_SESSION["NAME"])) {
+if (!isset($_SESSION["member"])) {
     header("Location: logout.php");
     exit;
 }
@@ -10,7 +10,7 @@ $_SESSION['page']='talks';
 $talks = Array();
 $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
 $cmd = 'SELECT t_talk.talk_id,t_talk.talk_name,t_member.member_name FROM t_auth inner join t_member on t_auth.member_id = t_member.member_id
-        inner join t_talk on t_talk.talk_id = t_auth.talk_id and t_member.member_id="' .$_SESSION['NAME'] .'";';
+        inner join t_talk on t_talk.talk_id = t_auth.talk_id and t_member.member_id="' .$_SESSION['member'] .'";';
 foreach($pdo->query($cmd) as $row){
     $talks[] = $row;
 }
@@ -28,7 +28,7 @@ if (isset($_POST["sent"])) {
     $_SESSION['page'] = 'talk';
     if($_POST['text']!=''){
         $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
-        $cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$_SESSION['NAME'] 
+        $cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$_SESSION['member'] 
         .'","' .$_SESSION['talk'] .'","' .$_POST['text'] .'");';
         $pdo->query($cmd);
     }
@@ -80,7 +80,7 @@ if (isset($_POST["sent"])) {
                 <div id="bms_messages">
                     <?php
                         foreach($messages as $message){
-                            if($message[1]!=$_SESSION["NAME"]){
+                            if($message[1]!=$_SESSION["member"]){
                                 //<!--メッセージ１（左側）-->
                                 print '<div class="bms_message bms_left">';
                                 print  '<div class="bms_message_box">';
@@ -90,7 +90,7 @@ if (isset($_POST["sent"])) {
                                 print  '</div>';
                                 print  '</div>';
                                 print  '<div class="bms_clear"></div>';//<!-- 回り込みを解除（スタイルはcssで充てる） -->
-                            }elseif($message[1]==$_SESSION["NAME"]){
+                            }elseif($message[1]==$_SESSION["member"]){
 
                                 //<!--メッセージ２（右側）-->
                                 print  '<div class="bms_message bms_right">';
