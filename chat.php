@@ -37,6 +37,10 @@ if (isset($_POST["sent"])) {
         $messages[] = $row;
     }
 }
+if (isset($_POST["sent"])) {
+    $_SESSION['page'] = 'talks';
+    $_SESSION['talk'] = '';
+}
 ?>
 
 
@@ -56,10 +60,12 @@ if (isset($_POST["sent"])) {
             <div id="bms_chat_header">
                 <!--ステータス-->
                 <div id="bms_chat_user_status">
-                    <!--ステータスアイコン-->
-                    <div id="bms_status_icon"></div>
+                    <!--戻るボタン-->
+                    <form action="#" method="POST">
+                    <button type="submit" id="bms_back" name="back">＜</button>
+                    </form>
                     <!--ユーザー名-->
-                    <div id="bms_chat_user_name"></div>
+                    <div id="bms_chat_user_name"><?php print $_SESSION['talk'];?></div>
                 </div>
             </div>
 
@@ -91,7 +97,6 @@ if (isset($_POST["sent"])) {
                                 print  '</div>';
                                 print  '<div class="bms_clear"></div>';//<!-- 回り込みを解除（スタイルはcssで充てる） -->
                             }elseif($message[1]==$_SESSION["member"]){
-
                                 //<!--メッセージ２（右側）-->
                                 print  '<div class="bms_message bms_right">';
                                 print  '<div class="bms_message_box">';
