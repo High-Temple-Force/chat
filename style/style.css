@@ -51,10 +51,9 @@
     height:60px;
 }
 
-.bms_talk_box.btn{
+.btn{
     width:99%;
     height:29px;
-    text-align:center;
     text-decoration:none;
     font-size: 30px;
     padding:20px 30px;
@@ -64,7 +63,7 @@
     background:RGB(17, 35, 255);
     color:#fff;
   }
-  .bms_talk_box.btn:hover{
+  .btn:hover{
     background:RGBA(0, 121, 194, .10)
   }
 
