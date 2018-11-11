@@ -51,7 +51,7 @@
     height:60px;
 }
 
-bms_talks.btn{
+bms_talk_box.btn{
     width:99%;
     height:29px;
     text-align:center;
@@ -64,7 +64,7 @@ bms_talks.btn{
     background:RGB(17, 35, 255);
     color:#fff;
   }
-  bms_talks.btn:hover{
+  bms_talk_box.btn:hover{
     background:RGBA(0, 121, 194, .10)
   }
 
