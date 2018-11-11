@@ -52,6 +52,7 @@ $_SESSION['page']='talks';
                             print '</div>';
                         }
                     ?>
+                    <div>kkkkkk</div>
                 </div>
             <?php elseif ($page == 'talk'): ?>
                 <div id="bms_messages">
@@ -77,13 +78,14 @@ $_SESSION['page']='talks';
                         print  '<div class="bms_clear"></div>'; //<!-- 回り込みを解除（スタイルはcssで充てる） -->
                     ?>
                 </div>
-            <?php endif;?>
+            
 
-            <!-- テキストボックス、送信ボタン④ -->
-            <div id="bms_send">
-                <textarea id="bms_send_message"></textarea>
-                <div id="bms_send_btn">送信</div>
-            </div>
+                <!-- テキストボックス、送信ボタン④ -->
+                <div id="bms_send">
+                    <textarea id="bms_send_message"></textarea>
+                    <div id="bms_send_btn">送信</div>
+                </div>
+            <?php endif;?>
         </div>
     </div>
 </body>
