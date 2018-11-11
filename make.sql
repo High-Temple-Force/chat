@@ -35,3 +35,6 @@ create table t_pass
 insert into chat.t_talk values ("test_talk_id","test_talk");
 insert into chat.t_member values ("test_usr_id","test_usr");
 insert into chat.t_auth  (talk_id, member_id) values ("test_talk_id", "test_usr_id");
+
+insert into chat.t_talk values ("test_talk_id2","test_talk2");
+insert into chat.t_auth  (talk_id, member_id) values ("test_talk_id2", "test_usr_id");

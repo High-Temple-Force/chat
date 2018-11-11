@@ -41,18 +41,17 @@ $_SESSION['page']='talks';
                     <?php
                         $talks = Array();
                         $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
-                        $cmd = 'SELECT t_talk.talk_name,t_member.member_name FROM t_auth inner join t_member on t_auth.member_id = t_member.member_id
+                        $cmd = 'SELECT t_talk.talk_id,t_talk.talk_name,t_member.member_name FROM t_auth inner join t_member on t_auth.member_id = t_member.member_id
                                 inner join t_talk on t_talk.talk_id = t_auth.talk_id and t_member.member_id="' .$_SESSION['NAME'] .'";';
                         foreach($pdo->query($cmd) as $row){
-                            $talks[] = $row['talk_name'];
+                            $talks[] = $row;
                         }
                         foreach($talks as $talk){
                             print '<div class="bms_talk_box">';
-                            print '<div>' .$talk .'</div>';
+                            print '<button type="submit" class="btn" name="open_talk" value="' .$talk[0] .'">' .$talk[1] .'</button>';
                             print '</div>';
                         }
                     ?>
-                    <div>kkkkkk</div>
                 </div>
             <?php elseif ($_SESSION['page'] == 'talk'): ?>
                 <div id="bms_messages">
