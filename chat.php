@@ -63,7 +63,7 @@ if (isset($_POST["sent"])) {
                     <!--戻るボタン-->
                     <?php if ($_SESSION['page'] == 'talk'): ?>
                         <form action="#" method="POST">
-                        <button type="submit" id="bms_back" name="back">＜</button><div><?php print $_SESSION['talk'];?></div>
+                        <button type="submit" id="bms_back" name="back">＜</button><?php print $_SESSION['talk'];?>
                         </form>
                     <?php endif;?>
                 </div>
