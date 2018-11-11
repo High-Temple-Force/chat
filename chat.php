@@ -5,7 +5,7 @@ if (!isset($_SESSION["NAME"])) {
     header("Location: logout.php");
     exit;
 }
-$_SESSION['page']='talk';
+$_SESSION['page']='talks';
 
 
 
@@ -36,7 +36,7 @@ $_SESSION['page']='talk';
             </div>
 
             <!-- タイムライン部分③ -->
-            <?php if ($page == 'talks'): ?>
+            <?php if ($page === 'talks'): ?>
                 <div id="bms_talks">
                     <?php
                         $talks = Array();
@@ -54,7 +54,7 @@ $_SESSION['page']='talk';
                     ?>
                     <div>kkkkkk</div>
                 </div>
-            <?php elseif ($page == 'talk'): ?>
+            <?php elseif ($page === 'talk'): ?>
                 <div id="bms_messages">
                     <?php
                         //<!--メッセージ１（左側）-->
