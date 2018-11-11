@@ -95,7 +95,7 @@ if (isset($_POST["sent"])) {
                                 print  '<div class="bms_message_text">' .$message[4] .'</div>';
                                 print  '</div>';
                                 print  '</div>';
-                                print  '<div>' .$message[1] .'</div>';
+                                print  '<div>' .$message[3] .' ' .$message[1] .'</div>';
                                 print  '</div>';
                                 print  '<div class="bms_clear"></div>';//<!-- 回り込みを解除（スタイルはcssで充てる） -->
                             }elseif($message[1]==$_SESSION["member"]){
