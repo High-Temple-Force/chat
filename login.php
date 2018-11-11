@@ -19,7 +19,7 @@ if (isset($_POST["login"])) {
             $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
             $cmd = 'SELECT password FROM t_pass WHERE member_id ="' .$userid .'";';
             foreach($pdo->query($cmd) as $row){
-                $dbpassword = $row['password'];
+                $dbpassword = $row[0];
             }
             if ($password==$dbpassword) {
                 session_regenerate_id(true);
@@ -52,8 +52,8 @@ if (isset($_POST["login"])) {
   <div class="login-triangle"></div>
   
   <h2 class="login-header">Log in</h2>
-  <form class="login-container">
   <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
+  <form class="login-container">
     <p><input type="text" name="userid" placeholder="User ID"></p>
     <p><input type="text" name="password" placeholder="Password"></p>
     <p><input type="submit" name="login" value="Log in"></p>
