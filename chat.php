@@ -25,7 +25,6 @@ if (isset($_POST["open_talk"])) {
     }
 }
 if (isset($_POST["sent"])) {
-    $_SESSION['page'] = 'talk';
     if($_POST['text']!=''){
         $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
         $cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$_SESSION['NAME'] 
