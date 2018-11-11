@@ -9,7 +9,7 @@ try {
  exit;
 }
 // データ取得
-$sql = "SELECT * FROM t_member where member_id='" .$id ."' ";
+$sql = "SELECT * FROM t_member where member_id=?";
 $stmt = ($dbh->prepare($sql));
 $stmt->execute(array($id));
 
