@@ -63,9 +63,9 @@ if (isset($_POST["sent"])) {
                     <!--戻るボタン-->
                     <form action="#" method="POST">
                     <button type="submit" id="bms_back" name="back">＜</button>
-                    </form>
                     <!--ユーザー名-->
                     <div id="bms_chat_user_name"><?php print $_SESSION['talk'];?></div>
+                    </form>
                 </div>
             </div>
 
