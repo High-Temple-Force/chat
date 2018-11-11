@@ -39,13 +39,25 @@ insert into chat.t_auth  (talk_id, member_id) values ("test_talk_id", "test_usr_
 insert into chat.t_talk values ("test_talk_id2","test_talk2");
 insert into chat.t_auth  (talk_id, member_id) values ("test_talk_id2", "test_usr_id");
 
-insert into chat.t_message (member_id,talk_id,m_text) values
-("test_usr_id","test_talk_id","test_text1____________________________________long"),
-("test_usr_id2","test_talk_id","test_text2____________________________________long"),
-("test_usr_id","test_talk_id","test_text3____________________________________long____________________________________long"),
-("test_usr_id","test_talk_id","test_text1____________________________________long"),
-("test_usr_id2","test_talk_id","test_text2____________________________________long"),
-("test_usr_id","test_talk_id","test_text3____________________________________long____________________________________long"),
-("test_usr_id","test_talk_id","test_text1____________________________________long"),
-("test_usr_id2","test_talk_id","test_text2____________________________________long"),
-("test_usr_id","test_talk_id","test_text3____________________________________long____________________________________long");
+insert into chat.t_member values
+("Takuto","Takuto"),
+("Moby","Moby"),
+("marimo","marimo"),
+("ume","うめ"),
+("YUUKI","YUUKI");
+
+insert into chat.t_talk values ("mlcloudblazer","mlcloudblazer");
+
+insert into chat.t_auth (talk_id, member_id) values 
+("mlcloudblazer","Takuto"),
+("mlcloudblazer","Moby"),
+("mlcloudblazer","marimo"),
+("mlcloudblazer","ume"),
+("mlcloudblazer","YUUKI");
+
+insert into chat.t_pass (member_id, password) values
+("Takuto","Takuto"),
+("Moby","Moby"),
+("marimo","marimo"),
+("ume","うめ"),
+("YUUKI","YUUKI");
