@@ -153,202 +153,92 @@
     margin-left: 50px;/*右側の発言だとわかる様に、吹き出し左側に隙間を入れる*/
 }
 
-@import "bourbon";
-
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
-
-$shadow-color: #23203b;
-$input-color: lighten(#AB9E95, 10%);
-$input-border-color: #5E5165;
-$button-background-color: #27AE60;
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html { 
-  background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-  background: transparent;
-}
-
-body, input, button {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-@mixin normalize-input {
-  display: block;
-  width: auto;
-  height: auto;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  background: none;
-  border-radius: 0px;
+  background: #456;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .login {
-  padding: 15px;
   width: 400px;
-  min-height: 400px;
-  margin: 2% auto 0 auto;
-
-  .heading {
-    text-align: center;
-    margin-top: 1%;
-
-    h2 {
-      font-size: 3em;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.7);
-      display: inline-block;
-      padding-bottom: 5px;
-      text-shadow: 1px 1px 3px $shadow-color;
-    }
-  }
-
-  form {
-    .input-group {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-      &:last-of-type {
-        border-top: none;
-      }
-
-      span {
-        background: transparent;
-        min-width: 53px;
-        border: none;
-
-        i {
-          font-size: 1.5em;
-          color: rgba(255, 255, 255, 0.2);
-        }
-      }
-    }
-
-    input.form-control {
-      @include normalize-input;
-
-      padding: 10px;
-      font-size: 1.6em;
-      width: 100%;
-      background: transparent;
-      color: $input-color;
-
-      &:focus {
-        border: none;
-      }
-    }
-
-    button {
-      margin-top: 20px;
-      background: $button-background-color;
-      border: none;
-      font-size: 1.6em;
-      font-weight: 300;
-      padding: 5px 0;
-      width: 100%;
-      border-radius: 3px;
-      color: lighten($button-background-color, 40%);
-      border-bottom: 4px solid darken($button-background-color, 10%);
-
-      &:hover {
-        background: tint($button-background-color, 4%);
-        -webkit-animation: hop 1s;
-        animation: hop 1s;
-      }
-    }
-  }
+  margin: 16px auto;
+  font-size: 16px;
 }
 
-.float {
-  display: inline-block;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.float:hover, .float:focus, .float:active {
-  -webkit-transform: translateY(-3px);
-  transform: translateY(-3px);
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #28d;
 }
 
-/* Large Devices, Wide Screens */
-
-@media only screen and (max-width : 1500px) {
+.login-header {
+  background: #28d;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
 }
 
-@media only screen and (max-width : 1200px) {
-  .login {
-    width: 600px;
-    font-size: 2em;
-  }
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
 }
 
-@media only screen and (max-width : 1100px) {
-  .login {
-    margin-top: 2%;
-    width: 600px;
-    font-size: 1.7em;
-  }
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
 }
 
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-  .login {
-    margin-top: 1%;
-    width: 550px;
-    font-size: 1.7em;
-    min-height: 0;
-  }
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
 }
 
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-  .login {
-    margin-top: 0;
-    width: 500px;
-    font-size: 1.3em;
-    min-height: 0;
-  }
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
 }
 
-/* Extra Small Devices, Phones */ 
-@media only screen and (max-width : 480px) {
-  .login {
-
-    h2 {
-      margin-top: 0;
-    }
-
-    margin-top: 0;
-    width: 400px;
-    font-size: 1em;
-    min-height: 0;
-  }
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
 }
 
-/* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-  .login {
-    margin-top: 0;
-    width: 200px;
-    font-size: 0.7em;
-    min-height: 0;
-  }
+.login input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
 }
