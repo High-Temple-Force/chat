@@ -31,7 +31,11 @@ if (isset($_POST["sent"])) {
         $cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$_SESSION['NAME'] 
         .'","' .$_SESSION['talk'] .'","' .$_POST['text'] .'");';
         $pdo->query($cmd);
-    }  
+    }
+    $cmd = 'select * from t_message where talk_id = "' .$_POST['open_talk'] .'";';
+    foreach($pdo->query($cmd) as $row){
+        $messages[] = $row;
+    }
 }
 ?>
 
