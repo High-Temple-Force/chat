@@ -24,9 +24,10 @@ if (isset($_POST["open_talk"])) {
         $messages[] = $row;
     }
 }
-/*
+
 if (isset($_POST["sent"])) {
     $_SESSION['page'] = 'talk';
+    /*
     if($_POST['text']!=''){
         $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
         $cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$_SESSION['member'] 
@@ -36,10 +37,10 @@ if (isset($_POST["sent"])) {
     $cmd = 'select * from t_message where talk_id = "' .$_SESSION['talk'] .'";';
     foreach($pdo->query($cmd) as $row){
         $messages[] = $row;
-    }
+    }*/
 }
-*/
-if (isset($_POST["back "])) {
+
+if (isset($_POST["back"])) {
     $_SESSION['page'] = 'talks';
     $_SESSION['talk'] = '';
 }
@@ -128,7 +129,7 @@ if (isset($_POST["back "])) {
                         <textarea id="bms_send_message" name="text"></textarea>
                         <button type="submit" id="bms_send_btn" name="sent">送信</button>
                         <input type="hidden" id="talk_id" value="<?php print $_SESSION['talk'];?>"/>
-                        <input type="hidden" id="member_id" value="<?php print $_SESSION['name'];?>"/>
+                        <input type="hidden" id="member_id" value="<?php print $_SESSION['NAME'];?>"/>
                     </div>
                 </form>
                 <script>
