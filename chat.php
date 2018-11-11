@@ -36,7 +36,7 @@ $_SESSION['page']='talks';
             </div>
 
             <!-- タイムライン部分③ -->
-            <?php if ($page === 'talks'): ?>
+            <?php if ($_SESSION['page'] == 'talks'): ?>
                 <div id="bms_talks">
                     <?php
                         $talks = Array();
@@ -54,7 +54,7 @@ $_SESSION['page']='talks';
                     ?>
                     <div>kkkkkk</div>
                 </div>
-            <?php elseif ($page === 'talk'): ?>
+            <?php elseif ($_SESSION['page'] == 'talk'): ?>
                 <div id="bms_messages">
                     <?php
                         //<!--メッセージ１（左側）-->
