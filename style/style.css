@@ -214,16 +214,15 @@ body {
   font-size: 0.95em;
 }
 
-.login input[type="userid"],
-.login input[type="password"] {
+.login input[type="text"]
+{
   background: #fff;
   border-color: #bbb;
   color: #555;
 }
 
 /* Text fields' focus effect */
-.login input[type="userid"]:focus,
-.login input[type="password"]:focus {
+.login input[type="text"]:focus{
   border-color: #888;
 }
 
