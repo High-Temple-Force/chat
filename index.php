@@ -14,7 +14,7 @@ if (isset($_POST["login"])) {
         if ($member_name != '') {
             session_regenerate_id(true);
             $_SESSION["NAME"] = $member_name; 
-            $_SESSION["page"]='chat';
+            $_SESSION["page"]='talk';
             $_SESSION["talk"]='test_talk_id';
             //header("Location: index.php");
             exit();  // 処理終了
