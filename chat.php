@@ -5,7 +5,7 @@ if (!isset($_SESSION["NAME"])) {
     header("Location: logout.php");
     exit;
 }
-$_SESSION['page']='talks';
+$_SESSION['page']='talk';
 
 
 
