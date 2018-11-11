@@ -64,6 +64,9 @@
     background:RGBA(0, 121, 194, .10)
   }
 
+#talk_list{
+    text-align:center;
+}
 
 
 /* タイムライン部分③ */

@@ -37,7 +37,7 @@ if (isset($_POST["sent"])) {
         $messages[] = $row;
     }
 }
-if (isset($_POST["back"])) {
+if (isset($_POST["back "])) {
     $_SESSION['page'] = 'talks';
     $_SESSION['talk'] = '';
 }
@@ -61,8 +61,10 @@ if (isset($_POST["back"])) {
             <div id="bms_chat_header">
                 <!--ステータス-->
                 <div id="bms_chat_user_status">
-                    <!--戻るボタン-->
-                    <?php if ($_SESSION['page'] == 'talk'): ?>
+                    <?php if ($_SESSION['page'] == 'talks'): ?>
+                        <div　id="talk_list">トーク一覧</div>
+
+                    <?php elseif ($_SESSION['page'] == 'talk'): ?>
                         <form action="#" method="POST">
                         <button type="submit" id="bms_back" name="back">＜</button><?php print $_SESSION['talk'];?>
                         </form>
