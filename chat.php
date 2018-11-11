@@ -8,13 +8,13 @@ if (!isset($_SESSION["NAME"])) {
 $_SESSION['page']='talks';
 
 if (isset($_POST["open_talk"])) {
-    $_SESSION['page'] == 'talk';
+    $_SESSION['page'] = 'talk';
     $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
     $cmd = 'select * from t_message where talk_id = "' .$_SESSION['open_talk'] .'";';
     foreach($pdo->query($cmd) as $row){
         $messages[] = $row;
     }
-    header("Location: chat.php"); 
+    //header("Location: chat.php"); 
 }
 
 
