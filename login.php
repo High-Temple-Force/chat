@@ -53,7 +53,7 @@ if (isset($_POST["login"])) {
   
   <h2 class="login-header">Log in</h2>
   <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
-  <form class="login-container">
+  <form class="login-container" action="#" method="POST">
     <p><input type="text" name="userid" placeholder="User ID"></p>
     <p><input type="text" name="password" placeholder="Password"></p>
     <p><input type="submit" name="login" value="Log in"></p>
