@@ -25,6 +25,12 @@ create table chat.t_auth
     talk_id varchar(256) not null,
     member_id varchar(256) not null
 );
+create table t_pass
+(
+    id int(8) not null AUTO_INCREMENT PRIMARY KEY,
+    member_id varchar(256) not null,
+    password varchar(256) not null
+)
 
 insert into chat.t_talk values ("test_talk_id","test_talk");
 insert into chat.t_member values ("test_usr_id","test_usr");
