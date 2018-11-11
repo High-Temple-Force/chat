@@ -5,6 +5,7 @@
 
     height:600px;/*ここはご自由に*/
     width: 50%;/*ここはご自由に*/
+    margin: 0 auto;
 }
 /* チャットの外側部分① */
 #bms_messages_container{
@@ -35,6 +36,11 @@
     float: left;/* bms_chat_user_statusに対して左寄せ */
     line-height: 2em;/*高さ調整*/
     padding-left: 8px;
+}
+
+.bms_talk_box{
+    width:100%;
+    height:30px;
 }
 
 /* タイムライン部分③ */
