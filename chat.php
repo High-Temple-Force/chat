@@ -25,6 +25,7 @@ if (isset($_POST["open_talk"])) {
     }
 }
 if (isset($_POST["sent"])) {
+    $_SESSION['page'] = 'talk';
     if($_POST['text']!=''){
         $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
         $cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$_SESSION['NAME'] 
@@ -104,11 +105,11 @@ if (isset($_POST["sent"])) {
 
                 <!-- テキストボックス、送信ボタン④ -->
                 <form action="#" method="POST">
-                <div id="bms_send">
-                    <textarea id="bms_send_message" name="text"></textarea>
-                    <button type="submit" id="bms_send_btn" name="sent">送信</div>
-                </div>
-                    </form>
+                    <div id="bms_send">
+                        <textarea id="bms_send_message" name="text"></textarea>
+                        <button type="submit" id="bms_send_btn" name="sent">送信</button>
+                    </div>
+                </form>
             <?php endif;?>
         </div>
     </div>
