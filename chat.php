@@ -37,7 +37,7 @@ if (isset($_POST["sent"])) {
         $messages[] = $row;
     }
 }
-if (isset($_POST["sent"])) {
+if (isset($_POST["back"])) {
     $_SESSION['page'] = 'talks';
     $_SESSION['talk'] = '';
 }
