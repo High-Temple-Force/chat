@@ -17,7 +17,7 @@ if (isset($_POST["login"])) {
         $password = $_POST["password"];
         try {
             $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
-            $cmd = 'SELECT password FROM t_pass WHERE member_id ="' .$userid .'";';
+            $cmd = 'SELECT password FROM t_pass WHERE member_id ="' .$memberid .'";';
             foreach($pdo->query($cmd) as $row){
                 $dbpassword = $row[0];
             }
