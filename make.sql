@@ -40,6 +40,12 @@ insert into chat.t_talk values ("test_talk_id2","test_talk2");
 insert into chat.t_auth  (talk_id, member_id) values ("test_talk_id2", "test_usr_id");
 
 insert into chat.t_message (member_id,talk_id,m_text) values
-("test_usr_id","test_talk_id","test_text1"),
-("test_usr_id2","test_talk_id","test_text2"),
-("test_usr_id","test_talk_id","test_text3");
+("test_usr_id","test_talk_id","test_text1____________________________________long"),
+("test_usr_id2","test_talk_id","test_text2____________________________________long"),
+("test_usr_id","test_talk_id","test_text3____________________________________long____________________________________long"),
+("test_usr_id","test_talk_id","test_text1____________________________________long"),
+("test_usr_id2","test_talk_id","test_text2____________________________________long"),
+("test_usr_id","test_talk_id","test_text3____________________________________long____________________________________long"),
+("test_usr_id","test_talk_id","test_text1____________________________________long"),
+("test_usr_id2","test_talk_id","test_text2____________________________________long"),
+("test_usr_id","test_talk_id","test_text3____________________________________long____________________________________long");

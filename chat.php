@@ -9,13 +9,21 @@ $_SESSION['page']='talks';
 
 if (isset($_POST["open_talk"])) {
     $_SESSION['page'] = 'talk';
+    $_SESSION['talk'] = $_POST['open_talk'];
     $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
     $cmd = 'select * from t_message where talk_id = "' .$_POST['open_talk'] .'";';
     foreach($pdo->query($cmd) as $row){
         $messages[] = $row;
     }
 }
-
+if (isset($_POST["sent"])) {
+    if($_POST['text']!=''){
+        $pdo = new PDO ( 'mysql:dbname=chat; host=localhost;port=3306; charset=utf8', 'root', 'Zaq12wsx!' );
+        $cmd = 'insert into chat.t_message (member_id,talk_id,m_text) values ("' .$_SESSION['NAME'] 
+        .'","' .$_SESSION['talk'] .'","' .$_POST['text'] .'");';
+        $pdo->query($cmd);
+    }  
+}
 ?>
 
 
@@ -94,10 +102,12 @@ if (isset($_POST["open_talk"])) {
             
 
                 <!-- テキストボックス、送信ボタン④ -->
+                <form action="#" method="POST">
                 <div id="bms_send">
-                    <textarea id="bms_send_message"></textarea>
-                    <div id="bms_send_btn">送信</div>
+                    <textarea id="bms_send_message" name="text"></textarea>
+                    <button type="submit" id="bms_send_btn" name="sent">送信</div>
                 </div>
+                    </form>
             <?php endif;?>
         </div>
     </div>
