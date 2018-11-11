@@ -16,7 +16,7 @@ if (isset($_POST["login"])) {
             $_SESSION["NAME"] = $member_name; 
             $_SESSION["page"]='chat';
             $_SESSION["talk"]='test_talk_id';
-            header("Location: index.php");
+            //header("Location: index.php");
             exit();  // 処理終了
         }else{
 
