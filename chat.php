@@ -67,7 +67,7 @@ if (isset($_POST["back"])) {
                 <!--ステータス-->
                 <div id="bms_chat_user_status">
                     <?php if ($_SESSION['page'] == 'talks'): ?>
-                        <div>　id="talk_list">トーク一覧</div>
+                        <div id="talk_list">トーク一覧</div>
 
                     <?php elseif ($_SESSION['page'] == 'talk'): ?>
                         <form action="#" method="POST">
@@ -127,7 +127,7 @@ if (isset($_POST["back"])) {
                 <!-- テキストボックス、送信ボタン④ -->
                 <form action="#" method="POST">
                     <div id="bms_send">
-                        <textarea id="bms_send_message" name="text"></textarea>
+                        <input type="text" id="bms_send_message" name="text"/>
                         <button type="submit" id="bms_send_btn" name="sent">送信</button>
                         <input type="hidden" id="talk_id" value="<?php print $_SESSION['talk'];?>"/>
                         <input type="hidden" id="member_id" value="<?php print $_SESSION['member'];?>"/>
