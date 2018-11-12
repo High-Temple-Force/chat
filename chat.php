@@ -67,7 +67,7 @@ if (isset($_POST["back"])) {
                 <!--ステータス-->
                 <div id="bms_chat_user_status">
                     <?php if ($_SESSION['page'] == 'talks'): ?>
-                        <div　id="talk_list">トーク一覧</div>
+                        <div>　id="talk_list">トーク一覧</div>
 
                     <?php elseif ($_SESSION['page'] == 'talk'): ?>
                         <form action="#" method="POST">
