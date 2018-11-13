@@ -47,17 +47,3 @@ insert into chat.t_member values
 ("YUUKI","YUUKI");
 
 insert into chat.t_talk values ("mlcloudblazer","mlcloudblazer");
-
-insert into chat.t_auth (talk_id, member_id) values 
-("mlcloudblazer","Takuto"),
-("mlcloudblazer","Moby"),
-("mlcloudblazer","marimo"),
-("mlcloudblazer","ume"),
-("mlcloudblazer","YUUKI");
-
-insert into chat.t_pass (member_id, password) values
-("Takuto","Takuto"),
-("Moby","Moby"),
-("marimo","marimo"),
-("ume","うめ"),
-("YUUKI","YUUKI");
