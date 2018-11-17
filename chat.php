@@ -125,14 +125,14 @@ if (isset($_POST["back"])) {
                 </script>
 
                 <!-- テキストボックス、送信ボタン④ -->
-                <form action="#" method="POST">
+                //<form action="#" method="POST">
                     <div id="bms_send">
                         <input type="text" id="bms_send_message" name="text"/>
                         <button type="submit" id="bms_send_btn" name="sent">送信</button>
                         <input type="hidden" id="talk_id" value="<?php print $_SESSION['talk'];?>"/>
                         <input type="hidden" id="member_id" value="<?php print $_SESSION['member'];?>"/>
                     </div>
-                </form>
+                //</form>
                 <script>
                     $(function(){
 
